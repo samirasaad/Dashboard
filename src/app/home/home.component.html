@@ -1,0 +1,19 @@
+<section class="home container">
+  <div class="btn-holder">
+     <button kendoButton  *ngIf="allWindowsOpened === false" (click)="openAllWindows()">display all windows</button>
+  </div>
+  <div class=" row">
+     <div class=" col-12 col-md-5" *ngFor="let window of windowsData">
+        <kendo-window tabIndex="window.windowId"  [(top)]="window.top"
+        [(left)]="window.left" [(resizable)]="!isResizable" [(draggable)]="!isDraggable"
+        [width]="width"  
+        [height]="height"  
+        title={{window.title}} *ngIf="window.isOpen"
+        (close)="close(window.windowId)">
+        <ul>
+          <li *ngFor="let item of window.info">{{item}}</li>
+        </ul>
+        </kendo-window> 
+     </div>
+  </div>
+</section>

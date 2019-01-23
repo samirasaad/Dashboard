@@ -1,0 +1,38 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/general';
+.header{
+  .date{
+      color: white;
+  }
+  img.user{
+      height: 30px;
+      width:30px;
+      border-radius: 50%;
+ }
+  .dropdown-toggle{
+      color:white;
+ }
+  .dropdown-menu , .dropdown-menu.show{
+      position: absolute;
+      min-width: 7rem;
+      left:-66px;
+      a.dropdown-item{
+        font-size:12px;
+        color: $primaryColor;
+        }
+      .dropdown-item.active, .dropdown-item:active{
+           background-color:lightgray;
+        }
+ }
+         background-color: black;
+      .navbar-brand{
+            a{
+              font-family: Roboto;
+              sub,sup{
+                color: $primaryColor;
+                font-size:20px;
+              }
+
+            }
+          }
+}

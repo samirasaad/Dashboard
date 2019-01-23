@@ -1,0 +1,78 @@
+<section class="min-heigt my-3" >
+    <div class="row mb-3">
+       <div class="col-12 col-md-10 ">
+          <!-- <div class="col-6"> -->
+          <div class="card">
+             <div class="card-block">
+                <form class="k-form" #searchEmployeeForm="ngForm" name="searchEmployeeForm" (ngSubmit)="search(searchEmployeeForm)">
+                <label class="k-form-field">
+                <span>Name <span class="k-required">*</span></span>
+                <input class="k-textbox" name="name" [(ngModel)]="searchEmployee.name"
+                placeholder="Your Name"   required/>
+                <span class="text-danger" *ngIf="!employeeNameisFound"> There is no employee with this eame</span>
+                </label>
+                <div class="k-form-field">
+                   <span>Department <span class="k-required">*</span></span>
+                   <kendo-combobox  name="department" [data]="allDepartments" 
+                   [allowCustom]="allowCustom" [(ngModel)]="searchEmployee.department" required>
+                   </kendo-combobox>
+                   <span class="text-danger" *ngIf="!employeeDepisFound"> There is no department with this name </span>
+                </div>
+                <div class="text-center">
+                   <button  class="k-button k-primary ml-2" [disabled]="!searchEmployeeForm.valid" >Search</button>
+                </div>
+                </form>
+             </div>
+          </div>
+       </div>
+       <!-- </div> -->
+    </div>
+    <div class="row">
+       <div class="col-12 col-md-10 ">
+          <kendo-grid [data]="foundemployeeList" [height]="500" [selectable]="selectableSettings">
+          <kendo-grid-column media="(max-width: 450px)" title="Items">
+             <ng-template kendoGridCellTemplate let-employee >
+                <!-- template for less than 450 mobile -->
+                <dl>
+                   <dt class="text-center">Select</dt>
+                   <dd class="text-center"><input showSelectAll="true" type="checkbox"></dd>
+                   <dt>Code</dt>
+                   <dd>{{ employee.employeeCode }}</dd>
+                   <dt>Name</dt>
+                   <dd>{{ employee.name }}</dd>
+                   <dt>Department</dt>
+                   <dd>{{ employee.department}}</dd>
+                   <dt>Birthdate</dt>
+                   <dd>{{ employee.bDate}}</dd>
+                   <dt>Gender</dt>
+                   <dd>{{ employee.gender}}</dd>
+                </dl>
+             </ng-template>
+          </kendo-grid-column>
+          <!-- columns for devices larger than 450  -->
+          <kendo-grid-checkbox-column showSelectAll="true"  media="(min-width: 450px)" width="60"
+             ></kendo-grid-checkbox-column>
+          <kendo-grid-column
+             media="(min-width: 450px)" width="60"
+             field="employeeCode" title="Code">
+          </kendo-grid-column>
+          <kendo-grid-column
+             media="(min-width: 450px)"
+             field="name" title="Name" >
+          </kendo-grid-column>
+          <kendo-grid-column
+             media="(min-width: 450px)"
+             field="department" title="Department">
+          </kendo-grid-column>
+          <kendo-grid-column
+             media="(min-width: 450px)"
+             field="bDate" title="Birthdate">
+          </kendo-grid-column>
+          <kendo-grid-column
+             media="(min-width: 450px)"
+             field="gender" title="Gender">
+          </kendo-grid-column>
+          </kendo-grid>
+       </div>
+    </div>
+ </section>

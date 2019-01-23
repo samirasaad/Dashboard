@@ -1,0 +1,28 @@
+/************ generaal styles *********/
+.k-combobox ,.k-textbox-container,.k-datepicker{
+    width:100%;
+}
+.min-heigt{
+    min-height:80vh
+}
+button.k-button{
+    background-color:$primaryColor;
+    border-color:$primaryColor;
+}
+button.k-button:hover , .k-radio:checked+.k-radio-label::before{
+    background-color:$primaryColor;
+    border-color:$primaryColor;
+}
+a{
+    text-decoration: none;
+}
+@font-face {
+    font-family: boldRaleway;
+    src: url(../../assets/fonts/raleway/Raleway-Bold.ttf);
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(../../assets/fonts/Roboto/RobotoSlab-Bold.ttf);
+}
+

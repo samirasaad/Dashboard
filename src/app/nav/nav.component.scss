@@ -1,0 +1,16 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/general';
+
+.nav{
+    // border:1px solid black;
+    .col-6 ,.col-md-5{
+        text-align:center;
+         border: 1px solid $primaryColor;
+         padding:15px 0 10px 0;
+         a{
+            color:$primaryColor; 
+            font-family:boldRaleway;
+        }
+        
+    }
+}
